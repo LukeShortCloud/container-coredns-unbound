@@ -1,0 +1,12 @@
+FROM debian:bullseye-slim
+
+RUN apt-get update
+RUN apt-get install -y golang libunbound-dev make wget
+RUN apt-get clean
+
+RUN mkdir /coredns-source
+VOLUME ["/coredns-source"]
+WORKDIR /coredns-source
+
+ENV CGO_ENABLED=1
+ENTRYPOINT ["/bin/sh", "-c", "go generate && make"]

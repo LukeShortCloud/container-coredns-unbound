@@ -1,0 +1,18 @@
+--- coredns-source/Makefile	2021-02-24 06:51:28.000000000 -0700
++++ coredns-source/MakefileFIXED	2021-03-01 20:39:57.923473239 -0700
+@@ -6,14 +6,13 @@
+ BUILDOPTS:=-v
+ GOPATH?=$(HOME)/go
+ MAKEPWD:=$(dir $(realpath $(firstword $(MAKEFILE_LIST))))
+-CGO_ENABLED:=0
+ 
+ .PHONY: all
+ all: coredns
+ 
+ .PHONY: coredns
+ coredns: $(CHECKS)
+-	CGO_ENABLED=$(CGO_ENABLED) $(SYSTEM) go build $(BUILDOPTS) -ldflags="-s -w -X github.com/coredns/coredns/coremain.GitCommit=$(GITCOMMIT)" -o $(BINARY)
++	$(SYSTEM) go build $(BUILDOPTS) -ldflags="-s -w -X github.com/coredns/coredns/coremain.GitCommit=$(GITCOMMIT)" -o $(BINARY)
+ 
+ .PHONY: check
+ check: core/plugin/zplugin.go core/dnsserver/zdirectives.go
