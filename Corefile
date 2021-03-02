@@ -1,0 +1,7 @@
+.:53 {
+   unbound
+   cache
+   forward . 8.8.8.8 1.1.1.1
+   log
+   errors
+}
