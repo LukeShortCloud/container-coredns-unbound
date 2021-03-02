@@ -7,7 +7,7 @@ A container image that provides CoreDNS compiled with the Unbound plugin. This p
 Default configuration:
 
 ```
-$ docker run -p 53:53/tcp -p 53:53/udp --name coredns-unbound coredns-unbound:1.8.3-1
+$ docker run -p 53:53/tcp -p 53:53/udp -d --name coredns-unbound coredns-unbound:1.8.3-1
 ```
 
 Custom `Corefile` configuration (an example is provided in this repository):
