@@ -8,6 +8,7 @@ wget https://github.com/coredns/coredns/archive/v${COREDNS_VER}.tar.gz
 tar -x -v -f v${COREDNS_VER}.tar.gz
 mv coredns-${COREDNS_VER} coredns-source
 patch -p0 < Makefile.patch
+echo "unbound:github.com/coredns/unbound" >> coredns-source/plugin.cfg
 docker image build --file Dockerfile.build --tag coredns-unbound-build:${COREDNS_VER}-${CCU_RELEASE} .
 docker run --rm -v "$(pwd)/coredns-source:/coredns-source" coredns-unbound-build:${COREDNS_VER}-${CCU_RELEASE}
 docker image build --file Dockerfile --tag coredns-unbound:${COREDNS_VER}-${CCU_RELEASE} .
