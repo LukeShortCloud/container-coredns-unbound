@@ -8,3 +8,4 @@ mv coredns-${COREDNS_VER} coredns-source
 patch -p0 < Makefile.patch
 docker image build --file Dockerfile.build --tag coredns-unbound-build:1.8.3-1 .
 docker run --rm -v "$(pwd)/coredns-source:/coredns-source" coredns-unbound-build:1.8.3-1
+docker image build --file Dockerfile --tag coredns-unbound:1.8.3-1 .
