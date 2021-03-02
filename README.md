@@ -16,6 +16,18 @@ Custom `Corefile` configuration (an example is provided in this repository):
 $ docker run -p 55:53/tcp -p 53:53/udp -v "$(pwd):/etc/coredns" -d --name coredns-unbound coredns-unbound:1.8.3-1
 ```
 
+## Registries
+
+The container image is available on both Docker Hub and Quay.io.
+
+```
+$ docker pull ekultails/coredns-unbound
+```
+
+```
+$ docker pull quay.io/ekultails/coredns-unbound
+```
+
 ## Build
 
 An automated build script is provided to download the source code, patch it to workaround a known [bug](https://github.com/miekg/unbound/issues/13) with the Unbound plugin, create an image with the build dependencies, and then compile the `coredns` binary.
