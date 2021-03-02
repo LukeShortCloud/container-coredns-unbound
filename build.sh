@@ -1,3 +1,5 @@
+#/bin/sh
+
 export COREDNS_VER=1.8.3
 rm -r -f v${COREDNS_VER}.tar.gz coredns-source
 wget https://github.com/coredns/coredns/archive/v${COREDNS_VER}.tar.gz
